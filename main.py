@@ -389,7 +389,7 @@ def cadcategorias():
 
         cursor.execute(""" SELECT 1
                             FROM CATEGORIA
-                            WHERE NOME = ?""", (nome_categoria,))
+                            WHERE NOME = ? AND ID_USUARIO = ?""", (nome_categoria, session['id_usuario']))
 
         if cursor.fetchone() is not None:
             flash("Erro: Categoria já cadastrada!")
